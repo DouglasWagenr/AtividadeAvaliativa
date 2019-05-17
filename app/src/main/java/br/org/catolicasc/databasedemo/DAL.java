@@ -18,17 +18,20 @@ public class DAL {
         database = new CreateDatabase(context);
     }
 
-    public boolean insert(String title, String author, String publisher) {
+    public boolean insert(String nome, String idade, String leoco, String glicemia, String ast, String ldh) {
         ContentValues values;
         long result;
 
         db = database.getWritableDatabase();
         values = new ContentValues();
-        values.put(CreateDatabase.TITLE, title);
-        values.put(CreateDatabase.AUTHOR, author);
-        values.put(CreateDatabase.PUBLISHER, publisher);
+        values.put(CreateDatabase.NOME,nome);
+        values.put(CreateDatabase.IDADE, idade);
+        values.put(CreateDatabase.LEOCO, leoco);
+        values.put(CreateDatabase.GLICEMIA, glicemia);
+        values.put(CreateDatabase.AST, ast);
+        values.put(CreateDatabase.LDH, ldh);
 
-        result = db.insert(CreateDatabase.TABLE, null, values);
+        result = db.insert(CreateDatabase.NOME, null, values);
         db.close();
 
 
@@ -42,7 +45,7 @@ public class DAL {
 
     public Cursor loadAll() {
         Cursor cursor;
-        String [] fields = {CreateDatabase.ID, CreateDatabase.TITLE};
+        String [] fields = {CreateDatabase.ID, CreateDatabase.NOME};
         db = database.getReadableDatabase();
 
         // SELECT _id, title FROM book

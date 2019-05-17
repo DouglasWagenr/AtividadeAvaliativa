@@ -14,21 +14,30 @@ public class InsertActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert);
 
-        Button btnAdd = findViewById(R.id.btnAdd);
+        Button btCadastrar = findViewById(R.id.btCadastrar);
 
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        btCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 DAL dal = new DAL(InsertActivity.this);
-                EditText etTitle = findViewById(R.id.etTitle);
-                EditText etAuthor = findViewById(R.id.etAuthor);
-                EditText etPublisher = findViewById(R.id.etPublisher);
+                EditText etNome = findViewById(R.id.etNome);
+                EditText etIdade = findViewById(R.id.etIdade);
+                EditText etLeoco = findViewById(R.id.etLeoco);
+                EditText etGlicemia = findViewById(R.id.etGlicemia);
+                EditText etAst = findViewById(R.id.etAst);
+                EditText etLdh = findViewById(R.id.etLdh);
 
-                String title = etTitle.getText().toString();
-                String author = etAuthor.getText().toString();
-                String publisher = etPublisher.getText().toString();
+                String nome = etNome.getText().toString();
+                String idade = etIdade.getText().toString();
+                String leoco = etLeoco.getText().toString();
+                String glicemia = etGlicemia.getText().toString();
+                String ast = etAst.getText().toString();
+                String ldh = etLdh.getText().toString();
 
-                if (dal.insert(title, author, publisher)) {
+                if (dal.insert(nome, idade, leoco, glicemia, ast, ldh)) {
                     Toast.makeText(InsertActivity.this,
                             "Registro Inserido com sucesso!", Toast.LENGTH_LONG).show();
                 } else {
@@ -39,3 +48,4 @@ public class InsertActivity extends AppCompatActivity {
         });
     }
 }
+
